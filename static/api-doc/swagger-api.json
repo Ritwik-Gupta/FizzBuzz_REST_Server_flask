@@ -1,0 +1,192 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Roche Hackathon - FizzBuzz Server",
+    "description": "This is a Fizz-Buzz REST Server that follows the classic Fizz-Buzz logic.\n\nBased in on the inputs provided by the end user, this server has endponts that provide the following results\n\n- Returns a string with the fizzbuzz logic implemented for the given parameters\n- Gets the count for the higest number of request made.\n- Gets the count of the requests made for the provided parameters.\n\n\nSome useful links:\n- [FizzBuzz Logic - Wiki](https://en.wikipedia.org/wiki/Fizz_buzz)\n\n_Note: This project is a submission for the Roche Pune Hackathon_\n\nDeveloped By: Riwik Gupta (ritwikgupta98@gmail.com)",
+    "contact": {
+      "email": "ritwikgupta98@gmail.com"
+    },
+    "license": {
+      "name": "MIT Licence",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000"
+    }
+  ],
+  "tags": [
+    {
+      "name": "FizzBuzz API",
+      "description": "Get FizzBuzz formatted results"
+    },
+    {
+      "name": "Statistics",
+      "description": "Get count of the requests/hits made to the api/get-result endpoint"
+    }
+  ],
+  "paths": {
+    "/api/get-result": {
+      "get": {
+        "tags": [
+          "FizzBuzz API"
+        ],
+        "summary": "Get FizzBuzz string",
+        "description": "This endpoint returns a string that has been formatted to follow the fizzbuzz logic according to the parameters provided<br><br>\nFor example (the request for the parameters below)<br><br> /api/get-result?n1=3&n2=5&limit=20&str1=fizz&str2=buzz <br><br> The Fizz-Buzz algorithm involves replacing all multiples of 3{n1} with \"fizz\"{str1}, all multiples of 5{n2} with \"buzz\"{str2} and all multiples of 15 with \"fizzbuzz\". The output should look like this<br><br>\nExample result - \"1,2,fizz,4,buzz,fizz,7,8,fizz,buzz,11,fizz,13,14,fizzbuzz,16,17,fizz,19,buzz\"",
+        "operationId": "get-result",
+        "parameters": [
+          {
+            "name": "n1",
+            "in": "query",
+            "description": "The first number whose multiples will be replaced with \"str1\" parameter",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "n2",
+            "in": "query",
+            "description": "The second number whose multiples will be replaced with \"str2\" parameter",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The limit until which the fizzbuzz logic will be implemented",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "str1",
+            "in": "query",
+            "description": "The string that will be replaced by the multiples of n1",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "str2",
+            "in": "query",
+            "description": "The string that will be replaced by the multiples of n2",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "text": {
+                "example": "1,2,fizz,4,buzz,fizz,7,8,fizz,buzz,11,fizz,13,14,fizzbuzz,16,17,fizz,19,buzz"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    },
+    "/api/get-statistics": {
+      "get": {
+        "tags": [
+          "Statistics"
+        ],
+        "summary": "Gets the request with the highest number of hits/request",
+        "description": "This enpoint returns the params(str1, str2) that has the highest number of requests made to the get-result endpoint",
+        "operationId": "getStatistics",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Statistic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    },
+    "/api/get-statistics-by-keys": {
+      "get": {
+        "tags": [
+          "Statistics"
+        ],
+        "summary": "Gets the request with the highest number of hits/request for the given keys",
+        "description": "This enpoint returns count of the hits/requests made to the get-result endpoint for the keys provided for this request.",
+        "operationId": "getStatisticsByKey",
+        "parameters": [
+          {
+            "name": "p1",
+            "in": "query",
+            "description": "The first key(str1) which will used combined with the second key(str2) to get the count of the hits/request made to the get-result endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "p2",
+            "in": "query",
+            "description": "The second key(str2) which will used combined with the first key(str1) to get the count of the hits/request made to the get-result endpoint",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Statistic"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Statistic": {
+        "type": "object",
+        "properties": {
+          "hits": {
+            "type": "integer",
+            "example": 7
+          },
+          "key": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "fizz, buzz"
+            }
+          }
+        }
+      }
+    }
+  }
+}
