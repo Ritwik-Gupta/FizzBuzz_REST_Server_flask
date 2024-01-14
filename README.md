@@ -65,6 +65,7 @@ The server should expose a REST API endpoint, with the additional feature of a s
 - API documentation is provided using Swagger UI
 - Navigate the Swagger documentation (http://localhost:5000/api/docs)
 - Select the localhost server from the dropdown (http://localhost:5000)
+  ![Alt text](https://github.com/Ritwik-Gupta/FizzBuzz_REST_Server_flask/blob/main/static/images/server_selection.png)
 - The REST Server has 3 API endpoints defined
   - Get the FizzBuzz logic implemented strings as per the query parameters
   - Get the count of the highest requests
