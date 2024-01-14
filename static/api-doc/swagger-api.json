@@ -46,7 +46,8 @@
             "description": "The first number whose multiples will be replaced with \"str1\" parameter",
             "required": true,
             "schema": {
-              "type": "number"
+              "type": "number",
+              "default": 3
             }
           },
           {
@@ -55,7 +56,8 @@
             "description": "The second number whose multiples will be replaced with \"str2\" parameter",
             "required": true,
             "schema": {
-              "type": "number"
+              "type": "number",
+              "default": 5
             }
           },
           {
@@ -64,7 +66,8 @@
             "description": "The limit until which the fizzbuzz logic will be implemented",
             "required": true,
             "schema": {
-              "type": "number"
+              "type": "number",
+              "default": 20
             }
           },
           {
@@ -73,7 +76,8 @@
             "description": "The string that will be replaced by the multiples of n1",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "default": "fizz"
             }
           },
           {
@@ -82,7 +86,8 @@
             "description": "The string that will be replaced by the multiples of n2",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "default": "buzz"
             }
           }
         ],
@@ -132,7 +137,7 @@
           "Statistics"
         ],
         "summary": "Gets the request with the highest number of hits/request for the given keys",
-        "description": "This enpoint returns count of the hits/requests made to the get-result endpoint for the keys provided for this request.",
+        "description": "This enpoint returns count of the hits/requests made to the get-result endpoint for the keys provided in this request.",
         "operationId": "getStatisticsByKey",
         "parameters": [
           {
@@ -141,7 +146,8 @@
             "description": "The first key(str1) which will used combined with the second key(str2) to get the count of the hits/request made to the get-result endpoint",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "default": "fizz"
             }
           },
           {
@@ -150,7 +156,8 @@
             "description": "The second key(str2) which will used combined with the first key(str1) to get the count of the hits/request made to the get-result endpoint",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "default": "buzz"
             }
           }
         ],
