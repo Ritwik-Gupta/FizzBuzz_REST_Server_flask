@@ -14,8 +14,10 @@
   },
   "servers": [
     {
-      "dev": "http://localhost:5000",
-      "prod": "https://fizzbuzz-rest-server.onrender.com"
+      "url": "http://localhost:5000"
+    },
+    {
+      "url": "https://fizzbuzz-rest-server.onrender.com"
     }
   ],
   "tags": [
