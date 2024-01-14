@@ -57,7 +57,7 @@ The server should expose a REST API endpoint, with the additional feature of a s
 ## Running the API
 
 - Once the installation is completed, run the api using command: **flask run**
-- The app will start running on the localhost server (http://localhost:5000/api/hello-world)
+- The app will start running on the localhost server (http://localhost:5000/hello-world)
 - Access API endpoints as per the API documentation using Postman/Swagger (http://localhost:5000/api/docs)
 
 ## API Documentation
@@ -65,7 +65,7 @@ The server should expose a REST API endpoint, with the additional feature of a s
 - API documentation is provided using Swagger UI
 - Navigate the Swagger documentation (http://localhost:5000/api/docs)
 - Select the localhost server from the dropdown (http://localhost:5000)
-- The REST API sever has 3 endpoints defined
+- The REST Server has 3 API endpoints defined
   - Get the FizzBuzz logic implemented strings as per the query parameters
   - Get the count of the highest requests
   - Get the count of the highest requests for a given query parameter
