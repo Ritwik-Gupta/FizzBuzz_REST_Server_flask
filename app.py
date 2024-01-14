@@ -1,9 +1,12 @@
 from flask import Flask, request, jsonify
 from modules import FizzBuzzCompute
 from flask_swagger_ui import get_swaggerui_blueprint
+import os
 
 # Create a Flask web application
 app = Flask(__name__)
+env_config = os.getenv("PROD_APP_SETTINGS", "config.DevelopmentConfig")
+app.config.from_object(env_config)
 
 SWAGGER_URL = '/api/docs'
 API_URL = '/static/api-doc/swagger-api.json'

@@ -4,3 +4,6 @@ __pycache__/
 
 # Ignore IDE-specific files for PyCharm
 .idea/
+
+# remove environment config file
+.env
