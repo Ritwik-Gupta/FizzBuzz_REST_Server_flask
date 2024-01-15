@@ -85,7 +85,7 @@ The server should expose a REST API endpoint, with the additional feature of a s
 - The API is hosted on a Render server
 - Production endpoints
   - SwaggerUI - https://fizzbuzz-rest-server.onrender.com/api/docs
-  - API - https://fizzbuzz-rest-server.onrender.com/api/hello-world
+  - API - https://fizzbuzz-rest-server.onrender.com/hello-world
  
 ## Conclusion
 
